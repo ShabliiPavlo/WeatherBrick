@@ -30,7 +30,16 @@ class MainViewController: UIViewController {
         guard let cityName = searchTextField.text, !cityName.isEmpty else { return }
         self.cityName = cityName
         
-        NetworkManager.manegerPro.requestToOpenweathermap(cityName: cityName, in:self)
+        NetworkManager.manegerPro.requestWeatherData(cityName: cityName) { [weak self] weatherData in
+            self?.updateWeatherUI(with: weatherData)
+        }
+    }
+    
+    func updateWeatherUI(with weatherData: WeatherManager) {
+        self.cityLabel.text = "\(weatherData.city), \(weatherData.country)"
+        self.weatherStatus.text = weatherData.weather
+        self.temperatureValue.text = String(Int(weatherData.temperature))
+        self.updateStoneUI(weather: weatherData.weather, temperature: weatherData.temperature)
     }
     
     func updateStoneUI(weather:String, temperature:Double) {
