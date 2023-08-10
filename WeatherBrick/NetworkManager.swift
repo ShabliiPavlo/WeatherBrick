@@ -23,7 +23,8 @@ class NetworkManager {
                 let weather = allData.weather?.first?.main ?? ""
                 let city = allData.name ?? ""
                 let country = allData.sys?.country ?? ""
-                let weatherData = WeatherManager(temperature: temperature, weather: weather, city: city, country: country)
+                let windSpeed = allData.wind?.speed ?? 0.0
+                let weatherData = WeatherManager(temperature: temperature, weather: weather, city: city, country: country, windSpeed: windSpeed)
                 
                 completion(weatherData)
             case .failure(let error):

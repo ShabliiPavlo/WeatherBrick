@@ -10,9 +10,16 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var frame: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let image = UIImage(named: "image_background")
+        background?.image = image
+        background?.contentMode = .scaleAspectFill
+        background?.clipsToBounds = true
+            
         makeViewRoundCorners()
     }
 
@@ -23,9 +30,9 @@ class InfoViewController: UIViewController {
     func makeViewRoundCorners() {
         let cornerRadius: CGFloat = 20.0
 
-        frame.layer.cornerRadius = cornerRadius
+        frame?.layer.cornerRadius = cornerRadius
          
-        frame.layer.masksToBounds = true
+        frame?.layer.masksToBounds = true
         }
     
 }

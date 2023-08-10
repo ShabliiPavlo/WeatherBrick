@@ -13,4 +13,5 @@ struct WeatherManager {
     let weather: String
     let city: String
     let country: String
+    let windSpeed: Double
 }

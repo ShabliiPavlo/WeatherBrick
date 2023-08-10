@@ -12,7 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="WeatherBrick" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="WeatherBrick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,7 +68,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-zW-klG">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Infow" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-zW-klG">
                                 <rect key="frame" x="96" y="776" width="200" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="6qr-86-WkQ"/>
@@ -144,7 +144,9 @@
                     <navigationItem key="navigationItem" id="ci6-YL-chu"/>
                     <connections>
                         <outlet property="cityLabel" destination="DyJ-Af-hLV" id="gIs-VM-a6l"/>
+                        <outlet property="otherSide" destination="0el-2k-XBs" id="YLG-b8-dav"/>
                         <outlet property="searchTextField" destination="Oej-5N-EHa" id="8L1-kR-bTj"/>
+                        <outlet property="stoneIndicaorSide" destination="0kJ-at-2Gb" id="2sm-XT-0aI"/>
                         <outlet property="stoneIndicator" destination="nhu-u1-8f7" id="ebq-gR-5Ol"/>
                         <outlet property="temperatureValue" destination="tWN-4c-0zp" id="8wH-Bz-tQB"/>
                         <outlet property="weatherStatus" destination="p7R-c2-4TS" id="JAF-hx-cz9"/>
@@ -152,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="401" y="-2"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="UNQ-VB-D3l">
@@ -164,6 +166,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="T0d-hJ-VHH">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="T0d-hJ-VHH" secondAttribute="height" multiplier="393:842" id="9Xf-kj-OnX"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Itv-EH-DGb">
                                 <rect key="frame" x="65" y="220" width="263" height="372"/>
@@ -233,9 +238,6 @@ Brick is gone - No Internet</string>
                         <viewLayoutGuide key="safeArea" id="V5k-BG-4yJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="T0d-hJ-VHH" secondAttribute="trailing" id="0sq-F1-upY"/>
-                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="leading" secondItem="Ij1-jk-dZ1" secondAttribute="leading" id="1af-rj-jcf"/>
-                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="leading" secondItem="Ij1-jk-dZ1" secondAttribute="leading" id="2XT-6j-gay"/>
                             <constraint firstItem="Itv-EH-DGb" firstAttribute="top" secondItem="V5k-BG-4yJ" secondAttribute="top" constant="220" id="3rq-Ic-qIP"/>
                             <constraint firstItem="T0d-hJ-VHH" firstAttribute="trailing" secondItem="V5k-BG-4yJ" secondAttribute="trailing" id="8CM-3F-5hT"/>
                             <constraint firstItem="Itv-EH-DGb" firstAttribute="leading" secondItem="V5k-BG-4yJ" secondAttribute="leading" constant="65" id="98z-HJ-Dle"/>
@@ -243,13 +245,16 @@ Brick is gone - No Internet</string>
                             <constraint firstItem="T0d-hJ-VHH" firstAttribute="top" secondItem="Ij1-jk-dZ1" secondAttribute="top" id="AkZ-rc-Dkf"/>
                             <constraint firstItem="T0d-hJ-VHH" firstAttribute="top" secondItem="Ij1-jk-dZ1" secondAttribute="top" id="DEY-9N-9FB"/>
                             <constraint firstItem="Itv-EH-DGb" firstAttribute="centerX" secondItem="T0d-hJ-VHH" secondAttribute="centerX" id="EJ2-r9-0WZ"/>
-                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="leading" secondItem="Ij1-jk-dZ1" secondAttribute="leading" id="IPN-LO-cJa"/>
+                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="centerY" secondItem="Ij1-jk-dZ1" secondAttribute="centerY" id="HPb-kG-IIu"/>
                             <constraint firstAttribute="bottom" secondItem="T0d-hJ-VHH" secondAttribute="bottom" id="NPn-90-AMc"/>
                             <constraint firstAttribute="trailing" secondItem="T0d-hJ-VHH" secondAttribute="trailing" id="QHh-st-ZWm"/>
+                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="bottom" secondItem="V5k-BG-4yJ" secondAttribute="bottom" id="UZ3-gH-4gg"/>
                             <constraint firstAttribute="bottom" secondItem="T0d-hJ-VHH" secondAttribute="bottom" id="VjQ-gv-2rS"/>
+                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="leading" secondItem="V5k-BG-4yJ" secondAttribute="leading" id="a6k-EF-V33"/>
                             <constraint firstItem="T0d-hJ-VHH" firstAttribute="centerY" secondItem="Ij1-jk-dZ1" secondAttribute="centerY" id="aTW-py-QEK"/>
+                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="top" secondItem="V5k-BG-4yJ" secondAttribute="top" id="aZK-bK-Puv"/>
                             <constraint firstItem="T0d-hJ-VHH" firstAttribute="top" secondItem="V5k-BG-4yJ" secondAttribute="top" id="cEr-VQ-Kh4"/>
-                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="centerX" secondItem="Ij1-jk-dZ1" secondAttribute="centerX" id="cgA-qL-KJE"/>
+                            <constraint firstItem="T0d-hJ-VHH" firstAttribute="trailing" secondItem="V5k-BG-4yJ" secondAttribute="trailing" id="hYk-iM-zVh"/>
                             <constraint firstItem="T0d-hJ-VHH" firstAttribute="top" secondItem="Ij1-jk-dZ1" secondAttribute="top" id="oPk-BE-GLr"/>
                             <constraint firstAttribute="bottom" secondItem="T0d-hJ-VHH" secondAttribute="bottom" id="pfA-m0-p6b"/>
                             <constraint firstAttribute="trailing" secondItem="T0d-hJ-VHH" secondAttribute="trailing" id="zAz-LM-Yle"/>
@@ -257,6 +262,7 @@ Brick is gone - No Internet</string>
                     </view>
                     <navigationItem key="navigationItem" id="p5t-9G-3x5"/>
                     <connections>
+                        <outlet property="background" destination="T0d-hJ-VHH" id="uaE-zV-8Vg"/>
                         <outlet property="frame" destination="Itv-EH-DGb" id="6Us-1Z-zSx"/>
                     </connections>
                 </viewController>

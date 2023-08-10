@@ -1,31 +1,57 @@
 //
-//  Created by Volodymyr Andriienko on 11/3/21.
-//  Copyright © 2021 VAndrJ. All rights reserved.
+//  WeatherBrickTests.swift
+//  WeatherBrickTests
+//
+//  Created by Pavel Shabliy on 10.08.2023.
+//  Copyright © 2023 VAndrJ. All rights reserved.
 //
 
+import SnapshotTesting
 import XCTest
 @testable import WeatherBrick
 
-class WeatherBrickTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class MyViewControllerTests: XCTestCase {
+    
+    func testInfoViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InfoViewController")
+        
+        assertSnapshot(matching: vc, as: .image)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testMainViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        assertSnapshot(matching: vc, as: .image)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
 }
+
+
+//class WeatherBrickTests: XCTestCase {
+//
+//    var test : MainViewController!
+//
+//    override func setUp() {
+//        super.setUp()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        test = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+//
+//    }
+//
+//    override func tearDown() {
+//        super.tearDown()
+//        test = nil
+//    }
+//
+//      func testMainViewController() {
+//        assertSnapshot(matching: test, as: .image)
+//      }
+//
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
+//}
